@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import "tailwindcss";
+
+/* Tailwind v4 Theme Configuration */
+@theme {
+  /* Colors - Stitch Design System */
+  --color-on-secondary-fixed-variant: #344088;
+  --color-surface-container-low: #1c1b1c;
+  --color-surface-variant: #353436;
+  --color-primary: #bbc3ff;
+  --color-outline: #8e8fa2;
+  --color-outline-variant: #444656;
+  --color-primary-fixed: #dee0ff;
+  --color-on-secondary: #1c2971;
+  --color-primary-container: #3d5afe;
+  --color-surface-tint: #bbc3ff;
+  --color-inverse-primary: #2848ee;
+  --color-inverse-surface: #e5e2e3;
+  --color-on-tertiary-fixed: #002108;
+  --color-on-primary-container: #f1f0ff;
+  --color-on-secondary-container: #a9b4ff;
+  --color-tertiary-fixed: #69ff87;
+  --color-on-surface-variant: #c5c5d9;
+  --color-surface-bright: #39393a;
+  --color-surface-dim: #131314;
+  --color-surface-container: #201f20;
+  --color-error: #ffb4ab;
+  --color-on-primary-fixed: #000f5d;
+  --color-surface-container-lowest: #0e0e0f;
+  --color-on-tertiary-container: #c7ffc7;
+  --color-on-primary-fixed-variant: #002ccd;
+  --color-on-primary: #001d93;
+  --color-on-secondary-fixed: #010f5c;
+  --color-tertiary: #3ce36a;
+  --color-secondary: #bbc3ff;
+  --color-on-tertiary-fixed-variant: #00531e;
+  --color-on-background: #e5e2e3;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-inverse-on-surface: #313031;
+  --color-surface-container-high: #2a2a2b;
+  --color-on-surface: #e5e2e3;
+  --color-tertiary-fixed-dim: #3ce36a;
+  --color-surface-container-highest: #353436;
+  --color-surface: #131314;
+  --color-primary-fixed-dim: #bbc3ff;
+  --color-on-tertiary: #003912;
+  --color-on-error: #690005;
+  --color-tertiary-container: #007f32;
+  --color-secondary-container: #37438b;
+  --color-secondary-fixed: #dee0ff;
+  --color-background: #131314;
+  --color-secondary-fixed-dim: #bbc3ff;
+
+  /* Font Family */
+  --font-sans: 'Manrope', sans-serif;
+  --font-headline: 'Manrope', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-label: 'Manrope', sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 9999px;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "slnt" 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Material Symbols Configuration */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-display: block;
+}
+
+/* Glass Effect for Player */
+.glass-player {
+  background: linear-gradient(135deg, rgba(187, 195, 255, 0.1) 0%, rgba(32, 31, 32, 0.8) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Text Glow Effect */
+.text-glow {
+  text-shadow: 0 0 12px rgba(187, 195, 255, 0.4);
+}
+
+/* Hide Scrollbar */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Dark Mode Selection */
+::selection {
+  background-color: rgba(61, 90, 254, 0.3);
+  color: #f1f0ff;
+}
+
+/* Focus Styles */
+button:focus-visible, 
+a:focus-visible {
+  outline: 2px solid #bbc3ff;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Smooth Transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Playback indicator bars (see components/ui/Equalizer.tsx) */
+@keyframes eq-bounce {
+  0%, 100% { height: 20%; }
+  50% { height: 100%; }
+}
+
+.eq-bar {
+  height: 20%;
+  animation: eq-bounce 0.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Entrance animations for toasts, menus and dialogs */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.animate-rise {
+  animation: rise 220ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade {
+  animation: fade 180ms ease-out both;
+}
+
+/* Respect the OS "reduce motion" preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 197, 217, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(197, 197, 217, 0.5);
+}

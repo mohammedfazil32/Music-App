@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Sonic Curator - Now Playing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#344088",
+                        "surface-container-low": "#1c1b1c",
+                        "surface-variant": "#353436",
+                        "primary": "#bbc3ff",
+                        "outline": "#8e8fa2",
+                        "outline-variant": "#444656",
+                        "primary-fixed": "#dee0ff",
+                        "on-secondary": "#1c2971",
+                        "primary-container": "#3d5afe",
+                        "surface-tint": "#bbc3ff",
+                        "inverse-primary": "#2848ee",
+                        "inverse-surface": "#e5e2e3",
+                        "on-tertiary-fixed": "#002108",
+                        "on-primary-container": "#f1f0ff",
+                        "on-secondary-container": "#a9b4ff",
+                        "tertiary-fixed": "#69ff87",
+                        "on-surface-variant": "#c5c5d9",
+                        "surface-bright": "#39393a",
+                        "surface-dim": "#131314",
+                        "surface-container": "#201f20",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed": "#000f5d",
+                        "surface-container-lowest": "#0e0e0f",
+                        "on-tertiary-container": "#c7ffc7",
+                        "on-primary-fixed-variant": "#002ccd",
+                        "on-primary": "#001d93",
+                        "on-secondary-fixed": "#010f5c",
+                        "tertiary": "#3ce36a",
+                        "secondary": "#bbc3ff",
+                        "on-tertiary-fixed-variant": "#00531e",
+                        "on-background": "#e5e2e3",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313031",
+                        "surface-container-high": "#2a2a2b",
+                        "on-surface": "#e5e2e3",
+                        "tertiary-fixed-dim": "#3ce36a",
+                        "surface-container-highest": "#353436",
+                        "surface": "#131314",
+                        "primary-fixed-dim": "#bbc3ff",
+                        "on-tertiary": "#003912",
+                        "on-error": "#690005",
+                        "tertiary-container": "#007f32",
+                        "secondary-container": "#37438b",
+                        "secondary-fixed": "#dee0ff",
+                        "background": "#131314",
+                        "secondary-fixed-dim": "#bbc3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .lyrics-gradient-mask {
+            mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+        }
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(187, 195, 255, 0.1) 0%, rgba(32, 31, 32, 0.8) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-full w-64 fixed left-0 top-0 bg-[#131314] dark:bg-[#131314] flex flex-col py-8 z-50">
+<div class="px-8 mb-10">
+<h1 class="text-2xl font-bold tracking-tighter text-[#e5e2e3]">The Sonic Curator</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-tertiary mt-1">Premium Tier</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 text-[#c5c5d9] pl-4 hover:bg-[#353436] transition-colors duration-200 py-3 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-95 transition-transform">home</span>
+<span class="font-manrope tracking-tight font-medium">Home</span>
+</a>
+<a class="flex items-center gap-4 text-[#c5c5d9] pl-4 hover:bg-[#353436] transition-colors duration-200 py-3 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-95 transition-transform">search</span>
+<span class="font-manrope tracking-tight font-medium">Explore</span>
+</a>
+<a class="flex items-center gap-4 text-[#bbc3ff] font-bold border-l-4 border-[#3d5afe] pl-4 hover:bg-[#353436] transition-colors duration-200 py-3 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-95 transition-transform">graphic_eq</span>
+<span class="font-manrope tracking-tight font-medium">Now Playing</span>
+</a>
+<a class="flex items-center gap-4 text-[#c5c5d9] pl-4 hover:bg-[#353436] transition-colors duration-200 py-3 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-95 transition-transform">library_music</span>
+<span class="font-manrope tracking-tight font-medium">Library</span>
+</a>
+</nav>
+<div class="px-6 mb-8">
+<button class="w-full py-3 px-4 bg-primary-container text-on-primary-container rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-all">
+                Upgrade to Lossless
+            </button>
+</div>
+<footer class="space-y-1">
+<a class="flex items-center gap-4 text-[#c5c5d9] pl-4 hover:bg-[#353436] transition-colors duration-200 py-2 group" href="#">
+<span class="material-symbols-outlined text-sm group-hover:scale-95 transition-transform">settings</span>
+<span class="text-sm font-manrope tracking-tight font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-4 text-[#c5c5d9] pl-4 hover:bg-[#353436] transition-colors duration-200 py-2 group" href="#">
+<span class="material-symbols-outlined text-sm group-hover:scale-95 transition-transform">help_outline</span>
+<span class="text-sm font-manrope tracking-tight font-medium">Support</span>
+</a>
+</footer>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen relative overflow-hidden bg-[#131314]">
+<!-- Ambient Background Glow -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-primary/20 blur-[120px] rounded-full"></div>
+<div class="absolute top-[40%] -right-[10%] w-[50%] h-[50%] bg-tertiary/10 blur-[150px] rounded-full"></div>
+</div>
+<!-- TopNavBar (Shared Component Inspired) -->
+<header class="flex justify-between items-center px-8 py-6 sticky top-0 z-40 bg-[#131314]/40 backdrop-blur-xl">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 text-on-surface-variant font-manrope text-sm font-semibold cursor-pointer hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">expand_more</span>
+<span>Playlist: Midnight Highs</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">equalizer</span>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="close up portrait of a young woman with a thoughtful expression in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE-oQfLTbMEhHhXAR1MblkV67TGYcUKjetCZmqknRZouLCdu_hJDK2xs0K4yzL0XPZPecdyHVm2zwkcB_D0K5w-FGlMnboxUj_wxiQ_C_sYfa1JD1SBVIOKrIKhNsE4enCFwEkc1x6DD4a5I9sVv8VlapARIiAGTrK_MZvKARSGUL8vXFku0WabZQHBARZGoWbTPrM8oE12ywhujcc-f867dR8EWDhqRNHp_qzD3TvLFsMp8VXBnhtjafv3-jVt-jqKLzkAQQ44b_5"/>
+</div>
+</div>
+</header>
+<!-- Player Layout -->
+<div class="px-12 py-8 grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-7xl mx-auto items-center">
+<!-- Left Side: Large Album Art & Track Info -->
+<div class="lg:col-span-6 space-y-8">
+<div class="relative group">
+<!-- Album Art Container -->
+<div class="aspect-square w-full rounded-2xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.6)] transform group-hover:scale-[1.02] transition-transform duration-700 ease-out">
+<img class="w-full h-full object-cover" data-alt="abstract vibrant 3D render of flowing neon liquid curves in indigo and emerald green colors on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl3Ew-KIIb4i2fUXH20nvW3PHZ8qBot-3WOkH8kF_nOOp7IRCsA-uwrjuIqGJmyGExWsYPvYR7xJRJVuHWsYWtuBNb0sJo7MHzbReFZT64fGBbStFkEnjAnU3YDoFcsEmNac2HdJnrxWYeEd8YESE12Wg3RkXZQCHq92EdV3M-MIolZQedqqscFNRi2Nwr6Ct800HnpoLj_RqN6hxltcaZUuGtps1DBjV0NZEFwkI-wWMt10RMvGyqcgXSJRddMR6MF-gvDROiHOI3"/>
+</div>
+<!-- Overlapping Decorative Element -->
+<div class="absolute -bottom-4 -right-4 w-32 h-32 glass-panel backdrop-blur-xl rounded-xl border border-outline-variant/10 p-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1;">album</span>
+</div>
+</div>
+<div class="space-y-2 pt-4">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-5xl font-extrabold tracking-tighter text-on-surface">Neon Horizon</h2>
+<p class="text-xl font-medium text-primary mt-1">The Digital Curator ft. Synth Wave</p>
+</div>
+<button class="p-3 rounded-full hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">favorite</span>
+</button>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="space-y-3 pt-4">
+<div class="relative h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<!-- Active Progress with Glow -->
+<div class="absolute top-0 left-0 h-full w-[45%] bg-gradient-to-r from-primary to-tertiary rounded-full shadow-[0_0_8px_rgba(187,195,255,0.6)]"></div>
+</div>
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
+<span>01:42</span>
+<span>03:54</span>
+</div>
+</div>
+<!-- Main Controls -->
+<div class="flex items-center justify-between px-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">shuffle</span>
+</button>
+<div class="flex items-center gap-10">
+<button class="text-on-surface hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined text-4xl">skip_previous</span>
+</button>
+<button class="w-20 h-20 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-lg shadow-primary-container/20 hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="text-on-surface hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined text-4xl">skip_next</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-2xl">repeat</span>
+</button>
+</div>
+</div>
+<!-- Right Side: Scrolling Lyrics -->
+<div class="lg:col-span-6 h-[600px] glass-panel backdrop-blur-2xl rounded-3xl border border-outline-variant/10 p-10 relative overflow-hidden flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-sm font-bold uppercase tracking-[0.3em] text-on-surface-variant">Lyrics</h3>
+<span class="material-symbols-outlined text-tertiary text-sm">auto_awesome</span>
+</div>
+<div class="flex-1 lyrics-gradient-mask overflow-y-auto space-y-8 pr-4 custom-scrollbar">
+<p class="text-2xl font-bold text-on-surface-variant/40 leading-relaxed">Fading lights in the mirror</p>
+<p class="text-2xl font-bold text-on-surface-variant/60 leading-relaxed">Chasing ghosts in the rain</p>
+<p class="text-3xl font-extrabold text-on-surface leading-relaxed drop-shadow-sm">The neon pulse is getting clearer</p>
+<p class="text-2xl font-bold text-on-surface-variant/60 leading-relaxed">Driving through the digital pain</p>
+<p class="text-2xl font-bold text-on-surface-variant/40 leading-relaxed">Synthetic dreams are all we share</p>
+<p class="text-2xl font-bold text-on-surface-variant/20 leading-relaxed">Weighted down by the midnight air</p>
+<p class="text-2xl font-bold text-on-surface-variant/10 leading-relaxed">Electric soul, electric heart</p>
+<p class="text-2xl font-bold text-on-surface-variant/10 leading-relaxed">Watching worlds fall apart</p>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant text-xl">devices</span>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">AirPlay: Studio One</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant text-xl">volume_up</span>
+<div class="w-24 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-[70%] bg-on-surface-variant rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Persistent Player - Shared Component Style) -->
+<div class="fixed bottom-6 left-[18rem] right-6 rounded-2xl h-20 bg-[#353436]/90 backdrop-blur-3xl flex items-center justify-between px-6 z-50 shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:scale-[1.02] transition-transform cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="abstract neon music album cover art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDskTP_L_aCOVLjqUidDEVAIUF54OGtMubiFyBr5I8AOdMNyfFLM3aoT96wbx1HFfbVvI7_OU547IKcHmGdEnEJWENNOnivOlYaRKl_DhTm6-xFztFF283uiVoosX7rAz_YCjxJL2C7gwNmFwj5sOQBQxHnZTDvo6jEfQEgngbGrsYVCGB9Vk8d3JrDI-kUJR0k05fXIE-L0ZRZ28ZWS7M9J1Jv2iuEM8rEUQMVyxbECjD7o7QLL8iIDH3Quo-gUljXGn1jGEgKOUBS"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Neon Horizon</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">The Digital Curator</p>
+</div>
+</div>
+<!-- Mini Visualizer -->
+<div class="flex items-end gap-1 h-6">
+<div class="w-1 bg-tertiary h-3 rounded-full"></div>
+<div class="w-1 bg-tertiary h-5 rounded-full"></div>
+<div class="w-1 bg-tertiary h-2 rounded-full"></div>
+<div class="w-1 bg-tertiary h-6 rounded-full"></div>
+<div class="w-1 bg-tertiary h-4 rounded-full"></div>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-on-surface transition-colors">queue_music</span>
+<div class="bg-[#3d5afe] p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">pause</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-on-surface transition-colors">skip_next</span>
+</div>
+</div>
+
+```</body></html>

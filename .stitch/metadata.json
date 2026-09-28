@@ -1,0 +1,53 @@
+{
+  "name": "projects/15454073412192803426",
+  "projectId": "15454073412192803426",
+  "title": "Premium Music App Design",
+  "visibility": "PRIVATE",
+  "createTime": "2026-04-10T17:38:09.007478Z",
+  "updateTime": "2026-04-10T17:43:27.459634Z",
+  "projectType": "TEXT_TO_UI_PRO",
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "bodyFont": "MANROPE",
+    "colorMode": "DARK",
+    "colorVariant": "FIDELITY",
+    "customColor": "#3D5AFE",
+    "headlineFont": "MANROPE",
+    "labelFont": "MANROPE",
+    "roundness": "ROUND_EIGHT"
+  },
+  "screens": {
+    "home": {
+      "id": "14116e2cf0444233b0f529a8d9388fca",
+      "sourceScreen": "projects/15454073412192803426/screens/14116e2cf0444233b0f529a8d9388fca",
+      "title": "Home Discovery",
+      "width": 2560,
+      "height": 3776
+    },
+    "search": {
+      "id": "8086c66630bf485495742fd07078bf34",
+      "sourceScreen": "projects/15454073412192803426/screens/8086c66630bf485495742fd07078bf34",
+      "title": "Search & Explore",
+      "width": 2560,
+      "height": 2240
+    },
+    "library": {
+      "id": "06a5bebcecae4f97b8b44de96a069d44",
+      "sourceScreen": "projects/15454073412192803426/screens/06a5bebcecae4f97b8b44de96a069d44",
+      "title": "Your Library",
+      "width": 2560,
+      "height": 3542
+    },
+    "player": {
+      "id": "4cc4e102a0b14c389c3549158ad06dd2",
+      "sourceScreen": "projects/15454073412192803426/screens/4cc4e102a0b14c389c3549158ad06dd2",
+      "title": "Now Playing",
+      "width": 2560,
+      "height": 2096
+    }
+  },
+  "metadata": {
+    "userRole": "OWNER"
+  }
+}
